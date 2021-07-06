@@ -33,14 +33,15 @@ pipeline {
                 }
             }
         }
-//         post {
-//             always {
-//                 echo 'Post stage'
-//             }
-//             failure {
-// //                 mail to: team@example.com, subject: 'The Pipeline failed :('
-//                 echo 'Post failed'
-//             }
-//         }
+        post {
+            always {
+                echo 'Wipe all data'
+                deleteDir()
+            }
+            failure {
+//                 mail to: team@example.com, subject: 'The Pipeline failed :('
+                echo 'Post failed'
+            }
+        }
     }
 }
