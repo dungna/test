@@ -34,6 +34,11 @@ pipeline {
                 steps {
                     sh 'aws s3 cp  dist/ s3://test/'
                 }
+                post {
+                    always {
+                        echo 'Post Deploy...'
+                    }
+                }
             }
         post {
             always {
