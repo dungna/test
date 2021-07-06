@@ -18,12 +18,6 @@ pipeline {
 //                 sh 'npm install'
             }
         }
-        stage('Build') {
-            steps {
-                echo 'Building....'
-//                 sh 'npm run build'
-            }
-        }
         stage('Deploy') {
             when {
                 expression {
