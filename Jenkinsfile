@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Building..'
+                echo 'Update code from SCM ${env.BUILD_ID} on ${env.JENKINS_URL}..'
                 checkout scm
                 sh "echo hello"
             }
