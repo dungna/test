@@ -15,13 +15,13 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing..'
-                sh 'npm install'
+//                 sh 'npm install'
             }
         }
         stage('Build') {
             steps {
                 echo 'Building....'
-                sh 'npm run build'
+//                 sh 'npm run build'
             }
         }
         stages {
@@ -39,7 +39,7 @@ pipeline {
                         echo 'Post Deploy...'
                     }
                 }
-            }
+        }
         post {
             always {
                 echo 'Post stage'
@@ -47,7 +47,7 @@ pipeline {
             failure {
 //                 mail to: team@example.com, subject: 'The Pipeline failed :('
                 echo 'Post failed'
+            }
         }
-    }
     }
 }
