@@ -24,20 +24,18 @@ pipeline {
 //                 sh 'npm run build'
             }
         }
-        stages {
-            stage('Deploy') {
-                when {
-                  expression {
-                    currentBuild.result == null || currentBuild.result == 'SUCCESS' 
-                  }
+        stage('Deploy') {
+            when {
+                expression {
+                currentBuild.result == null || currentBuild.result == 'SUCCESS' 
                 }
-                steps {
-                    sh 'aws s3 cp  dist/ s3://test/'
-                }
-                post {
-                    always {
-                        echo 'Post Deploy...'
-                    }
+            }
+            steps {
+                sh 'aws s3 cp  dist/ s3://test/'
+            }
+            post {
+                always {
+                    echo 'Post Deploy...'
                 }
             }
         }
